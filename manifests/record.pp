@@ -52,6 +52,7 @@ define bind::record (
     ensure  => $ensure,
     target  => "/etc/bind/pri/${zone}.conf",
     content => template($records_template),
+    order   => 99,
     notify  => Service['bind9'],
   }
 

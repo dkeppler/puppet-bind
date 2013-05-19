@@ -92,6 +92,7 @@ define bind::zone (
           ensure  => $ensure,
           target  => "/etc/bind/pri/${name}.conf",
           content => template('bind/zone-header.erb'),
+          order   => 01,
           require => Package['bind9'],
         }
 
